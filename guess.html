@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		body{
+		margin-top: 350px;
+		margin-left: 550px;
+		background-image: url("image1.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		
+	}
+	h2{
+		color: silver;
+	}
+</style>
+</head>
+<body>
+	<u><h1>GUESS THE NUMBER:</h1></u>
+	<h2>Guess The Number Between 1 to 100</h2>
+	<input type="number" id="guessinput">
+	<button id="guessbtn">submit</button>
+	<p id="msg"></p></body>
+
+</body>
+<script>
+var randomNumber=Math.floor(Math.random()*100)+1;
+var attempts=0;
+document.getElementById("guessbtn").addEventListener('click',function(){
+	var guess=parseInt(document.getElementById("guessinput").value)
+	attempts++;
+	if(guess===randomNumber){
+		displaymsg("Congratulations!You guessed the Number in "+attempts+"attempts")
+		document.getElementById("geussbtn").disabled=true;
+	}
+	else if(guess<randomNumber){
+		displaymsg("Too low!try a higher number.")
+	}
+	else{
+		displaymsg("Too high!try a lower number.")
+	}
+});
+function displaymsg(k){
+	document.getElementById("msg").textContent=k;
+}
+</script>
+</html>
